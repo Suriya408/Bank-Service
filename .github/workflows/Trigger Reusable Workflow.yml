@@ -1,0 +1,15 @@
+name: Trigger Reusable Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  call-reusable:
+    uses: Suriya408/Bank-Service/.github/workflows/reusable.yml@main
+    with:
+      java-version: '17'
+      maven-goal: 'clean install'
+    secrets:
+      MAVEN_SECRET: ${{ secrets.MAVEN_SECRET }}
