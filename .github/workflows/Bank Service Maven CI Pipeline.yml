@@ -63,7 +63,7 @@ jobs:
       url: https://staging.example.com
     steps:
       - name: Deploy to staging
-        run: echo "Deploying to staging..."
+        run: echo "Deploying  to staging..."
         env:
           STAGING_SECRET: ${{ secrets.STAGING_SECRET }}
 
