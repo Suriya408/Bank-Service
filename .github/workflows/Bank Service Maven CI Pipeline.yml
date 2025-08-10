@@ -43,6 +43,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: test
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+    
       - name: Download build artifacts
         uses: actions/download-artifact@v4
         with:
