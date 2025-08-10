@@ -25,11 +25,10 @@ jobs:
         uses: actions/setup-java@v3
         with:
           java-version: ${{ inputs.java-version }}
-          distribution: 'temurin'
+          distribution: 'microsoft'
 
       - name: Run Maven Goal
         run: mvn ${{ inputs.maven-goal }}
 
       - name: Use Secret
-        run: echo "Using secret: ${{ secrets.MAVEN_SECRET }}"
-        if: secrets.MAVEN_SECRET != ''
+        run: echo "Using secret:${{ secrets.MAVEN_SECRET }}"
