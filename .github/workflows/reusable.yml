@@ -1,0 +1,35 @@
+name: Reusable Maven Workflow
+
+on:
+  workflow_call:
+    inputs:
+      java-version:
+        required: true
+        type: string
+      maven-goal:
+        required: false
+        type: string
+        default: "verify"
+    secrets:
+      MAVEN_SECRET:
+        required: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v3
+        with:
+          java-version: ${{ inputs.java-version }}
+          distribution: 'temurin'
+
+      - name: Run Maven Goal
+        run: mvn ${{ inputs.maven-goal }}
+
+      - name: Use Secret
+        run: echo "Using secret: ${{ secrets.MAVEN_SECRET }}"
+        if: secrets.MAVEN_SECRET != ''
