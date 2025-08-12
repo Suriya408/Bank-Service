@@ -13,14 +13,6 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
-  eureka-server:
-    image: eurekaserver:latest
-    container_name: eureka-server
-    build:
-      context: ./eureka-server
-    ports:
-      - "8761:8761"
-
   bank-service:
     build:
       context: .
