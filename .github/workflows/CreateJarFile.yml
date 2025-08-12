@@ -8,9 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     environment: dev
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
