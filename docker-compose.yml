@@ -17,7 +17,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: bank-service
+    container_name: startimage
     depends_on:
       - postgres
 
